@@ -1,0 +1,13 @@
+front/node_modules/
+back/node_modules/
+
+front/build/
+back/build/
+
+*.log
+.vscode/
+.idea/
+*.iml
+
+package-lock.json
+

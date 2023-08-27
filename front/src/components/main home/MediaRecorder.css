@@ -1,0 +1,18 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.media-recorder-full {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 10%;
+}
+
+.div-2 {
+    width: 20%;
+}
+.button-width {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}

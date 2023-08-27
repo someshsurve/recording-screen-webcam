@@ -1,0 +1,105 @@
+
+.section {
+    color: white;
+    height: 100vh;
+    transition: height 0.5s ease;
+    padding: 0;
+    margin: 0;
+
+}
+
+.red-section {
+    background-color: lightcoral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*padding: -20px; !* Adjust as needed *!*/
+
+}
+
+.blue-section {
+    background-color: white;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Horizontally center content */
+    align-items: center;
+    flex-direction: column;
+}
+
+@media (max-width: 991px) {
+    .section {
+        height: 60vh;
+    }
+    .section-2-login-panel {
+        width: 70vw !important;
+    }
+}
+
+@media (max-width: 567px) {
+    .section {
+        height: 60vh;
+    }
+    .section-2-login-panel {
+        width: 90% !important;
+    }
+
+}
+
+.section-2-login-panel {
+    width: 50%;
+}
+.text-email-head {
+    color: black;
+}
+.header {
+    color: black;
+    font-weight: bolder;
+}
+
+.image-section {
+    width: 100vw;
+    height: 100vh;
+}
+
+.image-container {
+    max-width: 100%;
+    max-height: 100%;
+    /*margin: 0;*/
+    /*padding: 0;*/
+    overflow: hidden;
+    z-index: 0;
+    filter: blur(5px);
+}
+
+.image-container img {
+    margin: 0;
+    /*padding: 0;*/
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.sign-up-ask {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+}
+.space-text {
+    margin-right: 5px;
+}
+
+.span-text {
+    color: blue;
+}
+.span-text:hover {
+    color: lightcoral;
+}
+
+.div-container {
+    position: absolute;
+    background-color: #b45b44;
+    z-index: 2;
+}
+.div-container h1 {
+    font-size: 400%;
+}
