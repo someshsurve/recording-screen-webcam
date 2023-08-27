@@ -13,6 +13,8 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [isValidEmail, setIsValidEmail] = useState(true);
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+
 
     const handleOpenSnackbar = (message) => {
         setMessage(message);
@@ -39,6 +41,11 @@ const Login = () => {
     const handlePasswordChange = (event) => {
         const newPass = event.target.value;
         setPassword(newPass);
+    };
+
+    const handleNameChange = (event) => {
+        const newName = event.target.value;
+        setName(newName);
     };
 
     const validateEmail = (email) => {
@@ -70,6 +77,13 @@ const Login = () => {
         }, 1000);
     };
 
+    const requestBodyRegister = {
+        email: email,
+        password: password,
+        username: name,
+    };
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(email);
@@ -90,6 +104,26 @@ const Login = () => {
                 }, 10);
             } else {
                 handleError(message);
+                try {
+                    const { data } = await axios.post(
+                        "http://localhost:4000/signup",
+                        requestBodyRegister,
+                        { withCredentials: true }
+                    );
+                    console.log("data from api >>>>>",data);
+                    // handleOpenSnackbar(data);
+                    const { success, message } = data;
+                    if (success) {
+                        handleSuccess(message);
+                        setTimeout(() => {
+                            navigate("/");
+                        }, 2000);
+                    } else {
+                        handleError(message);
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
             }
         } catch (error) {
             console.log(error);
@@ -136,10 +170,16 @@ const Login = () => {
                                         <label for="floatingInput" className="text-email-head">Email address</label>
                                     </div>
                                     <div className="form-floating mb-3">
+                                        <input type="text" onChange={handleNameChange} className="form-control"
+                                                placeholder="Name" id="floatingName"></input>
+                                        <label htmlFor="floatingName" className="text-email-head">Name</label>
+                                    </div>
+                                    <div className="form-floating mb-3">
                                         <input type="password" onChange={handlePasswordChange} className="form-control"
                                                id="floatingPassword" placeholder="Password"></input>
-                                        <label for="floatingPassword" className="text-email-head">Password</label>
+                                        <label htmlFor="floatingPassword" className="text-email-head">Password</label>
                                     </div>
+
                                     {!isValidEmail && (
                                         <div className="invalid-feedback">Please enter a valid email address.</div>
                                     )}

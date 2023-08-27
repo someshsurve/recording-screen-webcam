@@ -65,6 +65,7 @@ const Register = () => {
         username: username,
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(email);
